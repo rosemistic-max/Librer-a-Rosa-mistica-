@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Librería Rosa Mística - Catálogo Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- HEADER PRINCIPAL -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo">
+  <img src="img/logo.jpg" alt="Librería Rosa Mística" class="logo-img" width="40" height="40" loading="eager" fetchpriority="high">
+  Rosa Mística
+</a>
+     
+      <nav class="main-nav" id="mainNav">
+        <a href="#inicio">Inicio</a>
+        <a href="#categorias">Categorías</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#presupuesto">Mi Lista</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" id="searchToggle" title="Buscar productos">🔍</button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- BARRA DE BÚSQUEDA CORREGIDA (No salta automáticamente) -->
+  <div class="search-bar" id="searchBar">
+    <div class="container search-bar-inner">
+      <input type="text" id="headerSearch" placeholder="¿Qué artículo buscas? Ej. Cuaderno, Lápiz...">
+      <button id="btnEjecutarBusqueda" class="btn btn-primary btn-search">Buscar</button>
+    </div>
+  </div>
+
+  <!-- HERO SECTION LIMPIO -->
+  <section class="hero" id="inicio">
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <span class="eyebrow">✨ Tu Lista Escolar Más Fácil</span>
+        <h1>Arma tu presupuesto <span class="gradient-text">Escolar</span></h1>
+        <p class="hero-sub">Selecciona tus útiles, calcula el total al instante y envía tu lista directo al WhatsApp sin complicaciones.</p>
+        <div class="hero-actions">
+          <a href="#catalogo" class="btn btn-primary">Ver Catálogo completo</a>
+          <a href="#presupuesto" class="btn btn-ghost">Ver mi lista (<span id="ticketCount">0</span>)</a>
+        </div>
+      <div class="hero-stats">
+  <span class="hero-stat">📦 +190 productos</span>
+  <span class="hero-stat">💬 Consulta o pedís por WhatsApp</span>
+  <span class="hero-stat">📍 León, Nicaragua</span>
+</div>
+      <div class="hero-badge-container">
+        <div class="floating-badge">⚡ Cotización Inmediata</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORÍAS -->
+  <section class="categories-section" id="categorias">
+    <div class="container">
+      <div class="section-head">
+        <h2>Explora por Categorías</h2>
+        <p class="section-sub">Toca una sección para filtrar los productos.</p>
+      </div>
+      <div class="category-grid" id="categoryGrid"></div>
+    </div>
+  </section>
+
+  <!-- CATÁLOGO -->
+  <section class="catalog-section" id="catalogo">
+    <div class="container">
+      <div class="section-head">
+        <h2>Nuestro Catálogo</h2>
+        <p class="section-sub">Productos actualizados en tiempo real</p>
+      </div>
+      <div class="filters" id="filters"></div>
+      <div class="catalog-grid" id="catalogGrid"></div>
+      <div id="catalogEmpty" class="catalog-empty" hidden>
+        <p>No encontramos ningún artículo que coincida con tu búsqueda. ¡Intenta con otra palabra!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESUPUESTO -->
+  <section class="budget-section" id="presupuesto">
+    <div class="container">
+      <div class="section-head">
+        <h2>Mi Presupuesto</h2>
+        <p class="section-sub">Revisa tus artículos seleccionados antes de enviar</p>
+      </div>
+
+      <div class="lista-body">
+        <div class="checklist-wrapper">
+          <ul class="checklist" id="checklist"></ul>
+        </div>
+
+        <div class="ticket-container">
+          <div class="ticket">
+            <h3 class="ticket-title">Resumen de Cotización</h3>
+            <div class="ticket-divider"></div>
+            <div class="ticket-row">
+              <span>Lugar:</span>
+              <strong>Librería Rosa Mística</strong>
+            </div>
+            <div class="ticket-divider"></div>
+            <div class="ticket-row ticket-total-row">
+              <span>Total Estimado:</span>
+              <span class="ticket-total" id="ticketTotal">C$ 0</span>
+            </div>
+            <button class="ticket-btn" id="sendWhatsappBtn">🟩 Consultar por WhatsApp</button>
+     <p class="ticket-note">Se generará un mensaje ordenado con tu lista.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <!-- GALERÍA DE LA TIENDA -->
+<section class="gallery-section" id="tienda">
+  <div class="container">
+    <div class="section-head">
+      <h2>Conocé Nuestra Tienda</h2>
+      <p class="section-sub">Así nos vas a encontrar en León</p>
+    </div>
+    <div class="gallery-grid">
+      <img src="img/local-2.jpg" alt="Interior de Librería Rosa Mística" loading="lazy" decoding="async">
+      <img src="img/local-3.jpg" alt="Estantería de útiles escolares" loading="lazy" decoding="async">
+      <img src="img/local-4.jpg" alt="Fachada de Librería Rosa Mística" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+
+  <!-- FOOTER RECUPERADO -->
+  <footer class="site-footer" id="footerContacto">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <h4>Librería Rosa Mística</h4>
+        <p>Tu mejor opción para el regreso a clases. Calidad, variedad y excelentes precios para tu bolsillo.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Ubicación</h4>
+        <p>📍 León, Nicaragua.<br>Del Hotel Europa 75 varas al Norte, Frente al segundo portón del mercado la estación.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <p>📞 WhatsApp: +505 8364 9723<br>👤 Atención: Doña Aminta</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Librería Rosa Mística. Todos los derechos reservados.</p>
+    </div>
+ 
+  </footer>
+<!-- BOTÓN FLOTANTE: IR A CONTACTO -->
+<a href="#footerContacto" class="jump-fab" title="Ir directo a contacto y ubicación">
+  <span class="jump-fab-icon">↓</span>
+  <span class="jump-fab-text">Contacto</span>
+</a>
+<button id="backToTop" class="back-to-top" title="Volver arriba" aria-label="Volver arriba">↑</button>
+  <script src="script.js"></script>
+</body>
+</html>
